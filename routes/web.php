@@ -18,4 +18,7 @@ Route::get('/', function () {
 
 Route::post('/everypay', 'PayController@tokenCatcher')->name('everypay');
 
+Route::post('/otherPage',     'ViewController@RedirectToOtherPage')->name('otherPage');
+Route::get('/finallyTheView',     'ViewController@finallyTheView')->name('finallyTheView');
+
 

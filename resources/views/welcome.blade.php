@@ -85,15 +85,43 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                   <button id="btn">Click me</button>
                 </div>
             </div>
         </div>
+        <script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
     </body>
 </html>
+<script>
+
+$(function(){
+$('#btn').on('click',function(){
+    ajaxToBack();
+})
+
+function ajaxToBack(){
+
+
+        $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+            type: 'post',
+            url: "{{route('otherPage')}}",
+            dataType: 'json',
+            async:true,
+            // data: {
+            //     "some data":"here"
+            // },
+            success: function(data) {
+            console.log(data);
+                window.location = data.redirectUrl;
+            },
+        });
+    }
+})
+          
+</script>

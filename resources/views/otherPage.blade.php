@@ -10,11 +10,18 @@
     <h1>I am the other Page</h1>
     <?php
     
-    
-    $data=session()->pull('missing');
-     var_dump($data);
-     $data =session('missing');
-     var_dump($data);
+
+    $ar1 = array('token' => 123321,'amount' => 12,'desc' => "yep" );
+   $object= new stdClass();
+   $object->one=123;
+   $object->gate="force";
+   $object->gate=(object)$ar1;
+    echo "<pre>";
+   var_dump($object);
+    // $data=session()->pull('missing');
+    //  var_dump($data);
+    //  $data =session('missing');
+    //  var_dump($data);
     
     ?>
 </body>

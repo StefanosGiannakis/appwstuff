@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="stylesheet" type="text/css" href="css/alert.css">
+
         <style>
             html, body {
                 background-color: #fff;
@@ -64,36 +66,31 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+<!-- The Modal -->
+{{-- <div id="myModal" class="modal">
 
-                <div class="links">
-                   <button id="btn">Click me</button>
-                </div>
-            </div>
-        </div>
-        <script
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+    </div> --}}
+<script
   src="https://code.jquery.com/jquery-3.4.0.min.js"
   integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
   crossorigin="anonymous"></script>
-    </body>
+
+<script>
+var url='js/alert.js?v="' + Date.now() + '"';
+var script = document.createElement('script');
+script.type = 'text/javascript';script.src = url;
+document.getElementsByTagName('head')[0].appendChild(script);
+console.log(script)
+</script>
+
+</body>
 </html>
 <script>
 

@@ -69,14 +69,14 @@
 
 
 <!-- The Modal -->
-{{-- <div id="myModal" class="modal">
+ <!-- <div id="myModal" class="modal"> -->
 
   <!-- Modal content -->
-  <div class="modal-content">
+  <!-- <div class="modal-content">
     <span class="close">&times;</span>
     <p>Some text in the Modal..</p>
   </div>
-    </div> --}}
+    </div>  -->
 <script
   src="https://code.jquery.com/jquery-3.4.0.min.js"
   integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
@@ -88,37 +88,37 @@ var script = document.createElement('script');
 script.type = 'text/javascript';script.src = url;
 document.getElementsByTagName('head')[0].appendChild(script);
 console.log(script)
-</script>
+</script> 
 
 </body>
 </html>
 <script>
 
-$(function(){
-$('#btn').on('click',function(){
-    ajaxToBack();
-})
+// $(function(){
+// $('#btn').on('click',function(){
+//     ajaxToBack();
+// })
 
-function ajaxToBack(){
+// function ajaxToBack(){
 
 
-        $.ajax({
-        headers: {
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        },
-            type: 'post',
-            url: "{{route('otherPage')}}",
-            dataType: 'json',
-            async:true,
-            // data: {
-            //     "some data":"here"
-            // },
-            success: function(data) {
-            console.log(data);
-                window.location = data.redirectUrl;
-            },
-        });
-    }
-})
+//         $.ajax({
+//         headers: {
+//             'X-CSRF-TOKEN': '{{ csrf_token() }}'
+//         },
+//             type: 'post',
+//             url: "{{route('otherPage')}}",
+//             dataType: 'json',
+//             async:true,
+//             // data: {
+//             //     "some data":"here"
+//             // },
+//             success: function(data) {
+//             console.log(data);
+//                 window.location = data.redirectUrl;
+//             },
+//         });
+//     }
+// })
           
 </script>

@@ -22,3 +22,7 @@ Route::post('/otherPage',     'ViewController@RedirectToOtherPage')->name('other
 Route::get('/finallyTheView',     'ViewController@finallyTheView')->name('finallyTheView');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -26,7 +26,7 @@
 // }
 // alert("i am loaded"+Date.now());
 
-if(true){
+if(true && false){
     onload = function() {
         this.addModalToBody();
         var modal = document.getElementById('myModal');

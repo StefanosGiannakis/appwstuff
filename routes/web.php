@@ -16,10 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/everypay', 'PayController@tokenCatcher')->name('everypay');
+// Route::post('/everypay', 'PayController@tokenCatcher')->name('everypay');
 
 Route::post('/otherPage',     'ViewController@RedirectToOtherPage')->name('otherPage');
-Route::get('/finallyTheView',     'ViewController@finallyTheView')->name('finallyTheView');
+// Route::get('/finallyTheView',     'ViewController@finallyTheView')->name('finallyTheView');
+Route::post('/savePopUp',     'ScriptController@savePopUp')->name('savePopUp');
 
 
 

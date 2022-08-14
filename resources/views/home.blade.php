@@ -67,7 +67,7 @@
           <div class="tab-content">
             <div class="tab-pane active" id="home">
                 <hr>
-                  <form class="form" action="##" method="post" id="registrationForm">
+                  <form class="form" method="POST" id="savePopUpForm" >
                       <div class="form-group">
                           
                           <div class="col-xs-6">
@@ -82,7 +82,7 @@
                               <input type="text" class="form-control" name="pop_up_message" id="pop_up_message" placeholder="Write your Pop up's Message" title="Actual message here !">
                           </div>
                       </div>
-          
+                      @csrf
                       {{-- <div class="form-group">
                           
                           <div class="col-xs-6">
@@ -128,7 +128,7 @@
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                              	<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                              	<button id="savePopUp" class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
                                	<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
                             </div>
                       </div>
@@ -287,4 +287,41 @@
 
         </div><!--/col-9-->
     </div><!--/row-->
+    <?php  //echo "<pre>"; var_dump(Auth::user()); ?>
+<script>
+$(function(){
+var user_id = '{{Auth::id()}}';
+
+$('#savePopUp').on('click',function(event){
+    // alert('clicked')
+    data = $('#savePopUpForm').serializeArray()
+    console.log(data)
+    data.push({name:'user_id',value:user_id})
+    event.preventDefault()
+    ajaxToBack(data)
+})
+
+function ajaxToBack(data){
+        $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+            type: 'post',
+            url: "{{route('savePopUp')}}",
+            dataType: 'json',
+            async:true,
+            data:data,
+            success: function(data) {
+            console.log(data);
+                // window.location = data.redirectUrl;
+            },
+            error: function(error){
+                alert('we have an error')
+                console.log(error)
+            }
+        });
+    }
+})
+
+</script>
 @endsection
